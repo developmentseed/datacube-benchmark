@@ -1,9 +1,5 @@
 # datacube-benchmark
 
-[![Docs](https://img.shields.io/badge/docs-developmentseed.org%2Fdatacube--benchmark-blue)](https://developmentseed.org/datacube-benchmark/)
-[![PyPI](https://img.shields.io/pypi/v/datacube-benchmark.svg)](https://pypi.org/project/datacube-benchmark/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 Utilities for benchmarking [Zarr](https://zarr.dev/) datacubes — generate
 synthetic stores with different chunking schemes, compressors, and
 dtypes, then measure read performance under realistic access patterns.
@@ -49,24 +45,7 @@ print(results)
 store — so the same call works against a local directory, S3, GCS, or
 Azure by swapping the store.
 
-## What's in the box
-
-- **`create_zarr_store`**, **`create_or_open_zarr_store`**,
-  **`create_or_open_zarr_array`**, **`create_empty_dataarray`** — build
-  synthetic Zarr datacubes at a target size, resolution, and chunk
-  shape.
-- **`benchmark_zarr_array`** — time random reads against one access
-  pattern (`"point"`, `"time_series"`, `"spatial_slice"`, `"full"`) and
-  return summary statistics with units attached.
-- **`benchmark_access_patterns`** — run all four access patterns and
-  return the combined results as a `pandas.DataFrame`.
-- **`benchmark_dataset_open`** — time `xarray.open_dataset` on a Zarr
-  store.
-- **`Config`** — a dataclass collecting the common knobs (compressor,
-  target array size, sample counts, concurrency).
-
-See the [API reference](https://developmentseed.org/datacube-benchmark/api.html)
-for the full signatures and parameter docs.
+See the [API reference](api.md) for the full surface.
 
 ## License
 

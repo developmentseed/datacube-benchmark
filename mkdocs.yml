@@ -1,0 +1,97 @@
+# Mirrors the docs setup at https://github.com/developmentseed/datacube-guide
+site_name: datacube-benchmark
+repo_name: datacube-benchmark
+repo_url: https://github.com/developmentseed/datacube-benchmark
+site_url: "https://developmentseed.org/datacube-benchmark/"
+site_description: Utilities for benchmarking Zarr datacubes — generate synthetic stores and measure read performance.
+site_author: Max Jones
+docs_dir: docs
+use_directory_urls: false
+
+extra:
+  version:
+    alias: true
+    provider: mike
+
+nav:
+  - "index.md"
+  - API Reference: "api.md"
+
+theme:
+  language: en
+  name: material
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      primary: blue grey
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - content.code.annotate
+    - content.code.copy
+    - content.tooltips
+    - navigation.indexes
+    - navigation.instant
+    - navigation.tracking
+    - search.suggest
+    - search.share
+
+plugins:
+  - search
+  - autorefs
+  - mkdocstrings:
+      enable_inventory: true
+      handlers:
+        python:
+          options:
+            allow_inspection: false
+            docstring_section_style: list
+            docstring_style: numpy
+            line_length: 80
+            separate_signature: true
+            show_root_heading: true
+            show_signature_annotations: true
+            show_source: false
+            show_symbol_type_toc: true
+            signature_crossrefs: true
+          inventories:
+            - https://docs.python.org/3/objects.inv
+            - https://docs.xarray.dev/en/stable/objects.inv
+            - https://numpy.org/doc/stable/objects.inv
+            - https://numcodecs.readthedocs.io/en/stable/objects.inv
+            - https://zarr.readthedocs.io/en/stable/objects.inv
+            - https://developmentseed.org/obstore/latest/objects.inv
+            - https://pint.readthedocs.io/en/stable/objects.inv
+            - https://pandas.pydata.org/docs/objects.inv
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - codehilite:
+      guess_lang: false
+  - def_list
+  - footnotes
+  - md_in_html
+  - pymdownx.betterem
+  - pymdownx.details
+  - pymdownx.magiclink:
+      hide_protocol: true
+      repo_url_shortener: true
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tilde
