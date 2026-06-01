@@ -15,8 +15,18 @@ permissions: {}
 
 jobs:
   test:
-    name: Run tests
-    runs-on: ubuntu-latest
+    name: Run tests (${{ matrix.os }}, Python ${{ matrix.python-version }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # Cover both supported Python versions; add macOS to back the
+        # "OS Independent" classifier without tripling CI on every push.
+        os: [ubuntu-latest]
+        python-version: ["3.12", "3.13"]
+        include:
+          - os: macos-latest
+            python-version: "3.13"
     permissions:
       contents: read # checkout the repo
     steps:
@@ -33,6 +43,7 @@ jobs:
         with:
           enable-cache: true
           version: "0.11.16"
+          python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
         run: uv sync
