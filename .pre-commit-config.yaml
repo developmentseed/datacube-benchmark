@@ -10,7 +10,6 @@ repos:
     rev: v2.3.0
     hooks:
       - id: codespell
-        args: ["-L", "fo,ihs,kake,te", "-S", "fixture,*.csv"]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
@@ -24,20 +23,20 @@ repos:
       - id: mypy
         files: src|tests
         additional_dependencies:
-          # Package dependencies
-          - packaging
-          - donfig
-          - numcodecs[crc32c]
-          - numpy==2.1  # until https://github.com/numpy/numpy/issues/28034 is resolved
-          - typing_extensions
-          - universal-pathlib
-          # Tests
-          - pytest
-          - pint
-          - zarr
-          - xarray
+          # Runtime deps
+          - arro3-core
           - dask
+          - numcodecs
+          - numpy
           - obstore
+          - pandas
+          - pint
+          - pyarrow
+          - xarray
+          - zarr
+          # Test deps
+          - hypothesis
+          - pytest
   - repo: https://github.com/numpy/numpydoc
     rev: v1.8.0
     hooks:

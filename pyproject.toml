@@ -44,9 +44,6 @@ Documentation = "https://developmentseed.org/datacube-benchmark/"
 Repository = "https://github.com/developmentseed/datacube-benchmark"
 Issues = "https://github.com/developmentseed/datacube-benchmark/issues"
 
-[project.scripts]
-datacube-benchmark = "datacube_benchmark:main"
-
 [dependency-groups]
 dev = [
     "hypothesis>=6.100.0",
